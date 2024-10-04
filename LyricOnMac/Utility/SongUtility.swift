@@ -8,6 +8,16 @@
 import Foundation
 import MediaPlayer
 
+// NowPlayingInfo struct to encapsulate the now playing information
+struct NowPlayingInfo {
+    let title: String?
+    let artist: String?
+    let album: String?
+    let elapsedTime: Double?
+    let duration: Double?
+    let playbackRate: Double?
+}
+
 class SongUtility {
     // MARK: - Constants
     let kMediaRemotePath = "/System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote"
@@ -28,52 +38,59 @@ class SongUtility {
     
     init() {
         loadMediaRemote()
-        registerForNowPlayingNotifications()
     }
-    
-    // Example Usage: Fetch Now Playing Info
-    func fetchNowPlayingInfo() {
-        guard MRIsMediaRemoteLoaded, let getNowPlayingInfo = MRMediaRemoteGetNowPlayingInfo else {
-            print("MediaRemote framework not loaded")
-            return
-        }
-        
-        getNowPlayingInfo(DispatchQueue.main) { nowPlayingInfo in
-            guard let info = nowPlayingInfo as? [String: Any] else {
-                print("No Now Playing Info available")
-                return
-            }
-            
-            // Extract title, artist, and album from the Now Playing Info
-            if let title = info["kMRMediaRemoteNowPlayingInfoTitle"] as? String {
-                print("Title: \(title)")
-            }
-            
-            if let artist = info["kMRMediaRemoteNowPlayingInfoArtist"] as? String {
-                print("Artist: \(artist)")
-            }
-            
-            if let album = info["kMRMediaRemoteNowPlayingInfoAlbum"] as? String {
-                print("Album: \(album)")
-            }
-            
-            // Extract elapsed time and total duration
-            if let elapsedTime = info["kMRMediaRemoteNowPlayingInfoElapsedTime"] as? Double {
-                print("Elapsed Time: \(elapsedTime) seconds")
-            }
-            
-            if let duration = info["kMRMediaRemoteNowPlayingInfoDuration"] as? Double {
-                print("Duration: \(duration) seconds")
-            }
-            
-            // Check playback rate (1.0 means playing, 0.0 means paused)
-            if let playbackRate = info["kMRMediaRemoteNowPlayingInfoPlaybackRate"] as? Double {
-                print("Playback Rate: \(playbackRate)")
+
+    // Infinite async sequence to fetch Now Playing Info
+    @MainActor
+    func nowPlayingInfoSequence() -> AsyncStream<NowPlayingInfo?> {
+        return AsyncStream { continuation in
+            Task {
+                while !Task.isCancelled {
+                    let nowPlayingInfo = await fetchNowPlayingInfo()
+                    continuation.yield(nowPlayingInfo)
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 second delay
+                }
+                continuation.finish()
             }
         }
     }
 
-    
+    // Fetch Now Playing Info using async/await
+    private func fetchNowPlayingInfo() async -> NowPlayingInfo? {
+        guard MRIsMediaRemoteLoaded, let getNowPlayingInfo = MRMediaRemoteGetNowPlayingInfo else {
+            print("MediaRemote framework not loaded")
+            return nil
+        }
+        
+        return await withCheckedContinuation { continuation in
+            getNowPlayingInfo(DispatchQueue.main) { nowPlayingInfo in
+                guard let info = nowPlayingInfo as? [String: Any] else {
+                    print("No Now Playing Info available")
+                    continuation.resume(returning: nil)
+                    return
+                }
+                
+                // Extract title, artist, album, etc.
+                let title = info["kMRMediaRemoteNowPlayingInfoTitle"] as? String
+                let artist = info["kMRMediaRemoteNowPlayingInfoArtist"] as? String
+                let album = info["kMRMediaRemoteNowPlayingInfoAlbum"] as? String
+                let elapsedTime = info["kMRMediaRemoteNowPlayingInfoElapsedTime"] as? Double
+                let duration = info["kMRMediaRemoteNowPlayingInfoDuration"] as? Double
+                let playbackRate = info["kMRMediaRemoteNowPlayingInfoPlaybackRate"] as? Double
+                
+                // Create NowPlayingInfo struct and return it
+                let nowPlayingInfo = NowPlayingInfo(
+                    title: title,
+                    artist: artist,
+                    album: album,
+                    elapsedTime: elapsedTime,
+                    duration: duration,
+                    playbackRate: playbackRate
+                )
+                continuation.resume(returning: nowPlayingInfo)
+            }
+        }
+    }
     
     // Load MediaRemote Framework
     private func loadMediaRemote() {
@@ -90,33 +107,4 @@ class SongUtility {
         
         dlclose(handle)
     }
-    
-    func registerForNowPlayingNotifications() {
-        // add notification
-        let nc = NotificationCenter.default
-        nc.addObserver(forName: .mediaRemoteNowPlayingApplicationPlaybackStateDidChange, object: nil, queue: nil) { [weak self] n in
-            self?.nowPlayingInfoDidChange()
-        }
-        nc.addObserver(forName: .mediaRemoteNowPlayingInfoDidChange, object: nil, queue: nil) { [weak self] n in
-            self?.nowPlayingInfoDidChange()
-        }
-    }
-    
-    private func unregisterForNowPlayingNotifications() {
-        guard MRIsMediaRemoteLoaded, let unregisterForNotifications = MRMediaRemoteUnregisterForNowPlayingNotifications else {
-            print("MediaRemote framework not loaded")
-            return
-        }
-        
-        unregisterForNotifications()
-    }
-    
-    func nowPlayingInfoDidChange() {
-        fetchNowPlayingInfo()  // Fetch the updated Now Playing Info when notification is received
-    }
-}
-
-private extension Notification.Name {
-    static let mediaRemoteNowPlayingInfoDidChange = Notification.Name("kMRMediaRemoteNowPlayingInfoDidChangeNotification")
-    static let mediaRemoteNowPlayingApplicationPlaybackStateDidChange = Notification.Name("kMRMediaRemoteNowPlayingApplicationPlaybackStateDidChangeNotification")
 }
