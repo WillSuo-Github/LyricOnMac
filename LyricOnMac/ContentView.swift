@@ -10,8 +10,9 @@ import Combine
 
 struct ContentView: View {
     private var songUtility = SongUtility()
-    @State private var nowPlayingInfo: NowPlayingInfo?
+    @State private var nowPlayingInfo: Song?
     @State private var cancellables = Set<AnyCancellable>()
+    let downloadManager = DownloadManager.shared
 
     var body: some View {
         VStack {
@@ -35,7 +36,7 @@ struct ContentView: View {
     }
 
     private func subscribeToNowPlayingInfo() {
-        songUtility.nowPlayingInfoPublisher
+        songUtility.nowPlayingSongPublisher
             .receive(on: DispatchQueue.main)
             .sink { info in
                 self.nowPlayingInfo = info

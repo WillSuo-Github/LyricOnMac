@@ -9,20 +9,20 @@ import Foundation
 import MediaPlayer
 import Combine
 
-class SongUtility: ObservableObject {
+class SongUtility: @unchecked Sendable {
     // MARK: - Constants
     private let kMediaRemotePath = "/System/Library/PrivateFrameworks/MediaRemote.framework/MediaRemote"
     private let timerInterval: Double = 0.1
 
     private var MRIsMediaRemoteLoaded = false
-    private var nowPlayingInfo: NowPlayingInfo?
+    private var nowPlayingInfo: Song?
     private var timer: DispatchSourceTimer?
     private var lastUpdateTime: Date = Date()
 
     // Combine publisher
-    private let nowPlayingInfoSubject = CurrentValueSubject<NowPlayingInfo?, Never>(nil)
-    var nowPlayingInfoPublisher: AnyPublisher<NowPlayingInfo?, Never> {
-        nowPlayingInfoSubject.eraseToAnyPublisher()
+    private let nowPlayingSongSubject = CurrentValueSubject<Song?, Never>(nil)
+    var nowPlayingSongPublisher: AnyPublisher<Song?, Never> {
+        nowPlayingSongSubject.eraseToAnyPublisher()
     }
 
     // Function Pointers
@@ -74,7 +74,7 @@ class SongUtility: ObservableObject {
             guard let self = self else { return }
             guard let info = nowPlayingInfo as? [String: Any] else {
                 print("No Now Playing Info available")
-                self.nowPlayingInfoSubject.send(nil)
+                self.nowPlayingSongSubject.send(nil)
                 return
             }
 
@@ -92,8 +92,14 @@ class SongUtility: ObservableObject {
             let timeSinceTimestamp = currentTime.timeIntervalSince(timestamp)
 
             let currentElapsedTime = max(elapsedTime + timeSinceTimestamp * playbackRate, 0)
+            
+            guard let title = title, let artist = artist else {
+                print("No title or artist available")
+                self.nowPlayingSongSubject.send(nil)
+                return
+            }
 
-            let nowPlayingInfo = NowPlayingInfo(
+            let nowPlayingInfo = Song(
                 title: title,
                 artist: artist,
                 album: album,
@@ -103,7 +109,7 @@ class SongUtility: ObservableObject {
             )
 
             self.nowPlayingInfo = nowPlayingInfo
-            self.nowPlayingInfoSubject.send(nowPlayingInfo)
+            self.nowPlayingSongSubject.send(nowPlayingInfo)
 
             self.startElapsedTimeTimer()
         }
@@ -148,7 +154,7 @@ class SongUtility: ObservableObject {
 
         self.nowPlayingInfo = nowPlayingInfo
 
-        nowPlayingInfoSubject.send(nowPlayingInfo)
+        nowPlayingSongSubject.send(nowPlayingInfo)
     }
 }
 
