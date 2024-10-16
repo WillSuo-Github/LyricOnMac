@@ -93,7 +93,7 @@ class SongUtility: @unchecked Sendable {
 
             let currentElapsedTime = max(elapsedTime + timeSinceTimestamp * playbackRate, 0)
             
-            guard let title = title, let artist = artist else {
+            guard let title = title, let artist = artist, !title.isEmpty, !artist.isEmpty else {
                 print("No title or artist available")
                 self.nowPlayingSongSubject.send(nil)
                 return
@@ -107,6 +107,8 @@ class SongUtility: @unchecked Sendable {
                 duration: duration,
                 playbackRate: playbackRate
             )
+            
+            print("current playing info: \(nowPlayingInfo)")
 
             self.nowPlayingInfo = nowPlayingInfo
             self.nowPlayingSongSubject.send(nowPlayingInfo)

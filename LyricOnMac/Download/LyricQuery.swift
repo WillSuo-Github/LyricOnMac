@@ -14,7 +14,15 @@ final class LyricQuery: Sendable {
         self.song = song
     }
     
-    func queryTerm() -> String {
-        return "\(song.artist) \(song.title)"
+    func title() -> String {
+        return song.title
+    }
+    
+    func artist() -> String {
+        return song.artist
+    }
+    
+    func duration() -> Double {
+        return song.duration ?? 0
     }
 }

@@ -6,13 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3485578B2CB3E3A80010A478 /* LyricsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3485578A2CB3E3A80010A478 /* LyricsKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		340EE40B2CAFF0B0000CFDD6 /* LyricOnMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LyricOnMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3485578D2CB3E46C0010A478 /* Exceptions for "LyricOnMac" folder in "LyricOnMac" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 340EE40A2CAFF0B0000CFDD6 /* LyricOnMac */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		340EE40D2CAFF0B0000CFDD6 /* LyricOnMac */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3485578D2CB3E46C0010A478 /* Exceptions for "LyricOnMac" folder in "LyricOnMac" target */,
+			);
 			path = LyricOnMac;
 			sourceTree = "<group>";
 		};
@@ -23,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3485578B2CB3E3A80010A478 /* LyricsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			);
 			name = LyricOnMac;
 			packageProductDependencies = (
+				3485578A2CB3E3A80010A478 /* LyricsKit */,
 			);
 			productName = LyricOnMac;
 			productReference = 340EE40B2CAFF0B0000CFDD6 /* LyricOnMac.app */;
@@ -94,6 +113,9 @@
 			);
 			mainGroup = 340EE4022CAFF0B0000CFDD6;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				348557892CB3E3A80010A478 /* XCRemoteSwiftPackageReference "LyricsKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 340EE40C2CAFF0B0000CFDD6 /* Products */;
 			projectDirPath = "";
@@ -252,6 +274,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LyricOnMac/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -291,6 +314,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LyricOnMac/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -339,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		348557892CB3E3A80010A478 /* XCRemoteSwiftPackageReference "LyricsKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ddddxxx/LyricsKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3485578A2CB3E3A80010A478 /* LyricsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 348557892CB3E3A80010A478 /* XCRemoteSwiftPackageReference "LyricsKit" */;
+			productName = LyricsKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 340EE4032CAFF0B0000CFDD6 /* Project object */;
 }
