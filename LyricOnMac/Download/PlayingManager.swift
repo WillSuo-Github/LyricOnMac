@@ -20,12 +20,15 @@ final class PlayingManager {
     private let lyricCacher = LyricCacher()
     
     private(set) var currentLyrics: Lyrics?
+    private(set) var currentLine: String?
+    private(set) var nextLine: String?
     
     private init() {
-        subscribeToNowPlayingInfo()
+        subscribeToDownloadLyrics()
+        subscribeToUpdateLyrics()
     }
     
-    private func subscribeToNowPlayingInfo() {
+    private func subscribeToDownloadLyrics() {
         songUtility.nowPlayingSongPublisher
             .scan((nil, nil), { previous, current in
                 return (previous.1, current)
@@ -49,6 +52,23 @@ final class PlayingManager {
             .store(in: &cancellables)
     }
     
+    private func subscribeToUpdateLyrics() {
+        songUtility.nowPlayingSongPublisher
+            .sink { [weak self] current in
+                guard let self = self,
+                      let current = current,
+                      current.title == currentLyrics?.metadata.title,
+                      current.artist == currentLyrics?.metadata.artist else {
+                    self?.currentLine = nil
+                    self?.nextLine = nil
+                    return
+                }
+                // 更新当前歌词行和下一行
+                updateLyrics(for: current.elapsedTime)
+            }
+            .store(in: &cancellables)
+    }
+    
     private func downloadLyric(for query: LyricQuery) {
         fetchLyric(for: query)
             .sink { [weak self] lyrics in
@@ -59,5 +79,30 @@ final class PlayingManager {
     
     private func fetchLyric(for query: LyricQuery) -> AnyPublisher<Lyrics, Never> {
         return lyricCacher.fetchLyrics(for: query, from: downloader)
+    }
+}
+
+// MARK: - Lyrics
+extension PlayingManager {
+    private func updateLyrics(for currentTime: TimeInterval) {
+        guard let lyrics = currentLyrics else {
+            currentLine = nil
+            nextLine = nil
+            return
+        }
+        
+        let (currentIndex, nextIndex) = lyrics[currentTime]
+        
+        if let currentIndex = currentIndex {
+            currentLine = lyrics.lines[currentIndex].content
+        } else {
+            currentLine = nil
+        }
+        
+        if let nextIndex = nextIndex {
+            nextLine = lyrics.lines[nextIndex...].first { $0.enabled && !$0.content.isEmpty }?.content
+        } else {
+            nextLine = nil
+        }
     }
 }

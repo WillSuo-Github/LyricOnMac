@@ -9,15 +9,14 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @State private var cancellables = Set<AnyCancellable>()
     @State private var playingManager = PlayingManager.shared
 
     var body: some View {
         VStack {
             if let lyrics = playingManager.currentLyrics {
-                Text("Title: \(lyrics.metadata.title ?? "Unknown")")
+                Text("\(playingManager.currentLine ?? "Unknown")")
                     .font(.headline)
-                Text("Artist: \(lyrics.metadata.artist ?? "Unknown")")
+                Text("\(playingManager.nextLine ?? "Unknown")")
                     .font(.subheadline)
                 .font(.body)
             } else {

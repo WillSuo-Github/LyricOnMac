@@ -30,8 +30,7 @@ final class LyricDownloader {
             }
             .compactMap { $0 }
             .map { lyrics -> Lyrics in
-                // 给 lyrics 赋值新的属性
-                var updatedLyrics = lyrics
+                let updatedLyrics = lyrics
                 updatedLyrics.metadata.title = query.title()
                 updatedLyrics.metadata.artist = query.artist()
                 return updatedLyrics
