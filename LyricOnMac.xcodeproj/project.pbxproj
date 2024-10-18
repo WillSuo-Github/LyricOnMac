@@ -7,28 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3485578B2CB3E3A80010A478 /* LyricsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3485578A2CB3E3A80010A478 /* LyricsKit */; };
+		34DDA2112CC2545E00EFB09D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34DDA2102CC2545E00EFB09D /* SnapKit */; };
+		34DDA2162CC2548500EFB09D /* LyricsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34DDA2152CC2548500EFB09D /* LyricsKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		340EE40B2CAFF0B0000CFDD6 /* LyricOnMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LyricOnMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34DDA1CA2CC2542100EFB09D /* LyricOnMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LyricOnMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3485578D2CB3E46C0010A478 /* Exceptions for "LyricOnMac" folder in "LyricOnMac" target */ = {
+		34DDA23A2CC25B0E00EFB09D /* Exceptions for "LyricOnMac" folder in "LyricOnMac" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 340EE40A2CAFF0B0000CFDD6 /* LyricOnMac */;
+			target = 34DDA1C92CC2542100EFB09D /* LyricOnMac */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		340EE40D2CAFF0B0000CFDD6 /* LyricOnMac */ = {
+		34DDA1CC2CC2542100EFB09D /* LyricOnMac */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3485578D2CB3E46C0010A478 /* Exceptions for "LyricOnMac" folder in "LyricOnMac" target */,
+				34DDA23A2CC25B0E00EFB09D /* Exceptions for "LyricOnMac" folder in "LyricOnMac" target */,
 			);
 			path = LyricOnMac;
 			sourceTree = "<group>";
@@ -36,29 +37,30 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		340EE4082CAFF0B0000CFDD6 /* Frameworks */ = {
+		34DDA1C72CC2542100EFB09D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3485578B2CB3E3A80010A478 /* LyricsKit in Frameworks */,
+				34DDA2112CC2545E00EFB09D /* SnapKit in Frameworks */,
+				34DDA2162CC2548500EFB09D /* LyricsKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		340EE4022CAFF0B0000CFDD6 = {
+		34DDA1C12CC2542100EFB09D = {
 			isa = PBXGroup;
 			children = (
-				340EE40D2CAFF0B0000CFDD6 /* LyricOnMac */,
-				340EE40C2CAFF0B0000CFDD6 /* Products */,
+				34DDA1CC2CC2542100EFB09D /* LyricOnMac */,
+				34DDA1CB2CC2542100EFB09D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		340EE40C2CAFF0B0000CFDD6 /* Products */ = {
+		34DDA1CB2CC2542100EFB09D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				340EE40B2CAFF0B0000CFDD6 /* LyricOnMac.app */,
+				34DDA1CA2CC2542100EFB09D /* LyricOnMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,68 +68,70 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		340EE40A2CAFF0B0000CFDD6 /* LyricOnMac */ = {
+		34DDA1C92CC2542100EFB09D /* LyricOnMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 340EE41A2CAFF0B1000CFDD6 /* Build configuration list for PBXNativeTarget "LyricOnMac" */;
+			buildConfigurationList = 34DDA1D72CC2542200EFB09D /* Build configuration list for PBXNativeTarget "LyricOnMac" */;
 			buildPhases = (
-				340EE4072CAFF0B0000CFDD6 /* Sources */,
-				340EE4082CAFF0B0000CFDD6 /* Frameworks */,
-				340EE4092CAFF0B0000CFDD6 /* Resources */,
+				34DDA1C62CC2542100EFB09D /* Sources */,
+				34DDA1C72CC2542100EFB09D /* Frameworks */,
+				34DDA1C82CC2542100EFB09D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				340EE40D2CAFF0B0000CFDD6 /* LyricOnMac */,
+				34DDA1CC2CC2542100EFB09D /* LyricOnMac */,
 			);
 			name = LyricOnMac;
 			packageProductDependencies = (
-				3485578A2CB3E3A80010A478 /* LyricsKit */,
+				34DDA2102CC2545E00EFB09D /* SnapKit */,
+				34DDA2152CC2548500EFB09D /* LyricsKit */,
 			);
 			productName = LyricOnMac;
-			productReference = 340EE40B2CAFF0B0000CFDD6 /* LyricOnMac.app */;
+			productReference = 34DDA1CA2CC2542100EFB09D /* LyricOnMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		340EE4032CAFF0B0000CFDD6 /* Project object */ = {
+		34DDA1C22CC2542100EFB09D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					340EE40A2CAFF0B0000CFDD6 = {
+					34DDA1C92CC2542100EFB09D = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = 340EE4062CAFF0B0000CFDD6 /* Build configuration list for PBXProject "LyricOnMac" */;
+			buildConfigurationList = 34DDA1C52CC2542100EFB09D /* Build configuration list for PBXProject "LyricOnMac" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 340EE4022CAFF0B0000CFDD6;
+			mainGroup = 34DDA1C12CC2542100EFB09D;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				348557892CB3E3A80010A478 /* XCRemoteSwiftPackageReference "LyricsKit" */,
+				34DDA20F2CC2545E00EFB09D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				34DDA2142CC2548500EFB09D /* XCRemoteSwiftPackageReference "LyricsKit" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 340EE40C2CAFF0B0000CFDD6 /* Products */;
+			productRefGroup = 34DDA1CB2CC2542100EFB09D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				340EE40A2CAFF0B0000CFDD6 /* LyricOnMac */,
+				34DDA1C92CC2542100EFB09D /* LyricOnMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		340EE4092CAFF0B0000CFDD6 /* Resources */ = {
+		34DDA1C82CC2542100EFB09D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,7 +141,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		340EE4072CAFF0B0000CFDD6 /* Sources */ = {
+		34DDA1C62CC2542100EFB09D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -147,7 +151,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		340EE4182CAFF0B1000CFDD6 /* Debug */ = {
+		34DDA1D52CC2542200EFB09D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,15 +204,17 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		340EE4192CAFF0B1000CFDD6 /* Release */ = {
+		34DDA1D62CC2542200EFB09D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -255,109 +261,87 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
-		340EE41B2CAFF0B1000CFDD6 /* Debug */ = {
+		34DDA1D82CC2542200EFB09D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LyricOnMac/LyricOnMac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LyricOnMac/Preview Content\"";
 				DEVELOPMENT_TEAM = NT9VR9C9HY;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LyricOnMac/Info.plist;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ws.LyricOnMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 6.0;
-				XROS_DEPLOYMENT_TARGET = 2.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		340EE41C2CAFF0B1000CFDD6 /* Release */ = {
+		34DDA1D92CC2542200EFB09D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LyricOnMac/LyricOnMac.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LyricOnMac/Preview Content\"";
 				DEVELOPMENT_TEAM = NT9VR9C9HY;
 				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LyricOnMac/Info.plist;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ws.LyricOnMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 6.0;
-				XROS_DEPLOYMENT_TARGET = 2.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		340EE4062CAFF0B0000CFDD6 /* Build configuration list for PBXProject "LyricOnMac" */ = {
+		34DDA1C52CC2542100EFB09D /* Build configuration list for PBXProject "LyricOnMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				340EE4182CAFF0B1000CFDD6 /* Debug */,
-				340EE4192CAFF0B1000CFDD6 /* Release */,
+				34DDA1D52CC2542200EFB09D /* Debug */,
+				34DDA1D62CC2542200EFB09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		340EE41A2CAFF0B1000CFDD6 /* Build configuration list for PBXNativeTarget "LyricOnMac" */ = {
+		34DDA1D72CC2542200EFB09D /* Build configuration list for PBXNativeTarget "LyricOnMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				340EE41B2CAFF0B1000CFDD6 /* Debug */,
-				340EE41C2CAFF0B1000CFDD6 /* Release */,
+				34DDA1D82CC2542200EFB09D /* Debug */,
+				34DDA1D92CC2542200EFB09D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -365,7 +349,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		348557892CB3E3A80010A478 /* XCRemoteSwiftPackageReference "LyricsKit" */ = {
+		34DDA20F2CC2545E00EFB09D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		34DDA2142CC2548500EFB09D /* XCRemoteSwiftPackageReference "LyricsKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ddddxxx/LyricsKit";
 			requirement = {
@@ -376,12 +368,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3485578A2CB3E3A80010A478 /* LyricsKit */ = {
+		34DDA2102CC2545E00EFB09D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 348557892CB3E3A80010A478 /* XCRemoteSwiftPackageReference "LyricsKit" */;
+			package = 34DDA20F2CC2545E00EFB09D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		34DDA2152CC2548500EFB09D /* LyricsKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34DDA2142CC2548500EFB09D /* XCRemoteSwiftPackageReference "LyricsKit" */;
 			productName = LyricsKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 340EE4032CAFF0B0000CFDD6 /* Project object */;
+	rootObject = 34DDA1C22CC2542100EFB09D /* Project object */;
 }

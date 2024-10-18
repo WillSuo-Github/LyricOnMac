@@ -92,11 +92,11 @@ extension PlayingManager {
         }
         
         let (currentIndex, nextIndex) = lyrics[currentTime]
-        
         if let currentIndex = currentIndex {
-            currentLine = lyrics.lines[currentIndex].content
-        } else {
-            currentLine = nil
+            let targetCurrentLine = lyrics.lines[currentIndex].content
+            if targetCurrentLine != currentLine, !targetCurrentLine.isEmpty {
+                currentLine = targetCurrentLine
+            }
         }
         
         if let nextIndex = nextIndex {

@@ -16,8 +16,10 @@ struct ContentView: View {
             if let lyrics = playingManager.currentLyrics {
                 Text("\(playingManager.currentLine ?? "Unknown")")
                     .font(.headline)
+                    .layoutPriority(1)
                 Text("\(playingManager.nextLine ?? "Unknown")")
                     .font(.subheadline)
+                    .layoutPriority(1)
                 .font(.body)
             } else {
                 Text("No lyrics")
