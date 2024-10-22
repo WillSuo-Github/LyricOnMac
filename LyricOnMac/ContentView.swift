@@ -13,16 +13,21 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            if let lyrics = playingManager.currentLyrics {
-                Text("\(playingManager.currentLine ?? "Unknown")")
-                    .font(.headline)
-                    .layoutPriority(1)
-                Text("\(playingManager.nextLine ?? "Unknown")")
-                    .font(.subheadline)
-                    .layoutPriority(1)
-                .font(.body)
+            if playingManager.currentLyrics != nil {
+                if let firstLine = playingManager.currentLine {
+                    Text(firstLine)
+                        .font(.custom("SF Compact Rounded", size: 32))
+                        .foregroundStyle(.cyan)
+                }
+                if let secondLine = playingManager.nextLine {
+                    Text(secondLine)
+                        .font(.custom("SF Compact Rounded", size: 20))
+                        .foregroundStyle(.cyan)
+                }
             } else {
                 Text("No lyrics")
+                    .font(.custom("SF Compact Rounded", size: 32))
+                    .foregroundStyle(.cyan)
             }
         }
         .padding()
