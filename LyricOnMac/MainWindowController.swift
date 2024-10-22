@@ -31,6 +31,11 @@ extension MainWindowController {
         window?.backgroundColor = .clear
         effectView.isHidden = true
         
+        setupContentView()
+        setupStickButton()
+    }
+    
+    private func setupContentView() {
         let contentView = ContentView()
         let hostingView = NSHostingView(rootView: contentView)
         hostingView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +43,24 @@ extension MainWindowController {
         window?.contentView?.addSubview(hostingView)
         hostingView.snp.makeConstraints { make in
             make.center.equalToSuperview()
+        }
+    }
+    
+    private func setupStickButton() {
+        guard let window = window else { return }
+        
+        let stickButton = NSButton(image: NSImage(systemSymbolName: "pin.slash.fill", accessibilityDescription: nil)!, target: self, action: #selector(stickButtonDidClick))
+        stickButton.alternateImage = NSImage(systemSymbolName: "pin.fill", accessibilityDescription: nil)
+        stickButton.isBordered = false
+        stickButton.imagePosition = .imageOnly
+        stickButton.imageScaling = .scaleProportionallyDown
+        stickButton.setButtonType(.toggle)
+        stickButton.translatesAutoresizingMaskIntoConstraints = false
+        window.contentView?.addSubview(stickButton)
+        stickButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(10)
+            make.left.equalToSuperview().offset(10)
+            make.width.height.equalTo(30)
         }
     }
     
@@ -66,5 +89,12 @@ extension MainWindowController {
                 self?.mouseDidExit()
             }
             .store(in: &cancellable)
+    }
+}
+
+// MARK: - Action
+extension MainWindowController {
+    @objc private func stickButtonDidClick() {
+        window?.level = window?.level == .floating ? .normal : .floating
     }
 }
