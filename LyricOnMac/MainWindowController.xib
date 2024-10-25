@@ -5,32 +5,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="LyricOnMac" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="LyricOM" customModuleProvider="target">
             <connections>
-                <outlet property="effectView" destination="qRR-rk-CG5" id="dIz-dG-xIg"/>
+                <outlet property="container" destination="IP7-zb-n7K" id="zqY-cj-67C"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" animationBehavior="utilityWindow" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="F0z-JX-Cv5" customClass="MainWindow" customModule="LyricOnMac" customModuleProvider="target">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" releasedWhenClosed="NO" animationBehavior="utilityWindow" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="F0z-JX-Cv5" customClass="MainWindow" customModule="LyricOM" customModuleProvider="target">
             <windowStyleMask key="styleMask" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="1317" y="93" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
-            <view key="contentView" id="se5-gp-TjO" customClass="MainView" customModule="LyricOnMac" customModuleProvider="target">
+            <view key="contentView" id="se5-gp-TjO" customClass="MainView" customModule="LyricOM" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <visualEffectView blendingMode="behindWindow" material="popover" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="qRR-rk-CG5">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="IP7-zb-n7K">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                    </visualEffectView>
+                        <subviews>
+                            <visualEffectView blendingMode="behindWindow" material="popover" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="qRR-rk-CG5">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qRR-rk-CG5" secondAttribute="trailing" id="51j-ii-0xY"/>
+                            <constraint firstItem="qRR-rk-CG5" firstAttribute="leading" secondItem="IP7-zb-n7K" secondAttribute="leading" id="EnI-vj-a7E"/>
+                            <constraint firstAttribute="bottom" secondItem="qRR-rk-CG5" secondAttribute="bottom" id="RqU-je-EXC"/>
+                            <constraint firstItem="qRR-rk-CG5" firstAttribute="top" secondItem="IP7-zb-n7K" secondAttribute="top" id="phL-3D-qHK"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qRR-rk-CG5" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="HZL-qX-DUG"/>
-                    <constraint firstItem="qRR-rk-CG5" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="MEO-eU-zSw"/>
-                    <constraint firstAttribute="trailing" secondItem="qRR-rk-CG5" secondAttribute="trailing" id="jzL-pJ-xj5"/>
-                    <constraint firstAttribute="bottom" secondItem="qRR-rk-CG5" secondAttribute="bottom" id="nA4-Cp-Q0Z"/>
+                    <constraint firstItem="IP7-zb-n7K" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="oH1-aH-fVf"/>
+                    <constraint firstAttribute="bottom" secondItem="IP7-zb-n7K" secondAttribute="bottom" id="pop-eV-RMJ"/>
+                    <constraint firstAttribute="trailing" secondItem="IP7-zb-n7K" secondAttribute="trailing" id="vVD-Y0-gbn"/>
+                    <constraint firstItem="IP7-zb-n7K" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="wSp-1q-DDQ"/>
                 </constraints>
             </view>
             <connections>

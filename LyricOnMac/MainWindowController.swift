@@ -12,10 +12,21 @@ import Combine
 
 class MainWindowController: NSWindowController {
 
-    @IBOutlet weak var effectView: NSVisualEffectView!
+    @IBOutlet weak var container: NSView!
     
     private var trackingArea: NSTrackingArea?
     private var cancellable = Set<AnyCancellable>()
+    
+    private lazy var stickButton = {
+        let result = NSButton(image: NSImage(systemSymbolName: "pin.slash.fill", accessibilityDescription: nil)!, target: self, action: #selector(stickButtonDidClick))
+        result.alternateImage = NSImage(systemSymbolName: "pin.fill", accessibilityDescription: nil)
+        result.isBordered = false
+        result.imagePosition = .imageOnly
+        result.imageScaling = .scaleProportionallyDown
+        result.setButtonType(.toggle)
+        result.translatesAutoresizingMaskIntoConstraints = false
+        return result
+    }()
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -29,7 +40,7 @@ class MainWindowController: NSWindowController {
 extension MainWindowController {
     private func setupUI() {
         window?.backgroundColor = .clear
-        effectView.isHidden = true
+        container.isHidden = true
         
         setupContentView()
         setupStickButton()
@@ -47,16 +58,7 @@ extension MainWindowController {
     }
     
     private func setupStickButton() {
-        guard let window = window else { return }
-        
-        let stickButton = NSButton(image: NSImage(systemSymbolName: "pin.slash.fill", accessibilityDescription: nil)!, target: self, action: #selector(stickButtonDidClick))
-        stickButton.alternateImage = NSImage(systemSymbolName: "pin.fill", accessibilityDescription: nil)
-        stickButton.isBordered = false
-        stickButton.imagePosition = .imageOnly
-        stickButton.imageScaling = .scaleProportionallyDown
-        stickButton.setButtonType(.toggle)
-        stickButton.translatesAutoresizingMaskIntoConstraints = false
-        window.contentView?.addSubview(stickButton)
+        container.addSubview(stickButton)
         stickButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(10)
@@ -65,11 +67,11 @@ extension MainWindowController {
     }
     
     private func mouseDidEnter() {
-        effectView.isHidden = false
+        container.isHidden = false
     }
     
     private func mouseDidExit() {
-        effectView.isHidden = true
+        container.isHidden = true
     }
 }
 
