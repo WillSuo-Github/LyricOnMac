@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346736AD2CE3590D00C81BAF /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 346736AC2CE3590D00C81BAF /* Sparkle */; };
 		34DDA2112CC2545E00EFB09D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34DDA2102CC2545E00EFB09D /* SnapKit */; };
 		34DDA2162CC2548500EFB09D /* LyricsKit in Frameworks */ = {isa = PBXBuildFile; productRef = 34DDA2152CC2548500EFB09D /* LyricsKit */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346736AD2CE3590D00C81BAF /* Sparkle in Frameworks */,
 				34DDA2112CC2545E00EFB09D /* SnapKit in Frameworks */,
 				34DDA2162CC2548500EFB09D /* LyricsKit in Frameworks */,
 			);
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				34DDA2102CC2545E00EFB09D /* SnapKit */,
 				34DDA2152CC2548500EFB09D /* LyricsKit */,
+				346736AC2CE3590D00C81BAF /* Sparkle */,
 			);
 			productName = LyricOnMac;
 			productReference = 34DDA1CA2CC2542100EFB09D /* LyricOM.app */;
@@ -119,6 +122,7 @@
 			packageReferences = (
 				34DDA20F2CC2545E00EFB09D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				34DDA2142CC2548500EFB09D /* XCRemoteSwiftPackageReference "LyricsKit" */,
+				346736AB2CE3590D00C81BAF /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 34DDA1CB2CC2542100EFB09D /* Products */;
@@ -355,6 +359,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		346736AB2CE3590D00C81BAF /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.4;
+			};
+		};
 		34DDA20F2CC2545E00EFB09D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -374,6 +386,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		346736AC2CE3590D00C81BAF /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 346736AB2CE3590D00C81BAF /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		34DDA2102CC2545E00EFB09D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 34DDA20F2CC2545E00EFB09D /* XCRemoteSwiftPackageReference "SnapKit" */;

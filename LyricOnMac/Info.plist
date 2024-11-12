@@ -18,5 +18,11 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://willsuo.com/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>lT+b4jFD+P7pt/qyi8TcxZxj+a18k8CFNhNDSkW7NcA=</string>
 </dict>
 </plist>

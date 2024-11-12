@@ -6,11 +6,12 @@
 //
 
 import Cocoa
+import Sparkle
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
     private var mainWindowController: MainWindowController = MainWindowController(windowNibName: "MainWindowController")
+    private var updater: SPUUpdater = SPUUpdater(hostBundle: Bundle.main, applicationBundle: Bundle.main, userDriver: UpdateDriver(), delegate: UpdateDelegate())
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         mainWindowController.showWindow(self)
@@ -23,7 +24,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
-
-
 }
-
